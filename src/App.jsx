@@ -13,7 +13,7 @@ const EMPTY_BOARD = () =>
     .map(() => Array(NUM_COLS).fill().map(() => [0, 0]));
 
 const heroImages = [
-  "/Ramzi_Images/3.JPG", 
+  "/Ramzi_Images/3.jpg", 
   "/Ramzi_Images/1.JPG", 
   "/Ramzi_Images/2.jpg", 
   "/Ramzi_Images/4.JPG", 
@@ -388,7 +388,9 @@ function ConnectFour() {
 
   const botMove = async (currentBoard) => {
     try {
-      const res = await axios.post("/api/predict", { board: currentBoard });
+      const response = await axios.post("/api/predict", {
+        board: currentBoard,
+      });
       const move = response.data.move;
       const row = findRow(currentBoard, move);
       if (row === -1) return;
