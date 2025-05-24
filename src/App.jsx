@@ -446,7 +446,7 @@ function ConnectFour() {
 
   const reportWin = async (name) => {
     try {
-      await axios.post("http://13.59.247.184:5001/win", { name });
+      await axios.post("/api/win", { name });
       fetchLeaderboard();
     } catch (err) {
       console.error("Error reporting win", err);
